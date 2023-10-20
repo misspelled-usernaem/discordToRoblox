@@ -11,6 +11,7 @@ important:dict=json.loads(open('./important.json','r').read())
 timesout=(60*2)+30
 messages={}
 channels={}
+running=False
 
 @client.event
 async def on_message(message:Message):
@@ -47,6 +48,9 @@ def isAllowed(payload):
 
 @app.route('/')
 def home():
+    if not running:
+        running=True
+        client.run(important['token'])
     return 'haiii!! >w<'
 
 @app.route('/message',methods=['POST'])
@@ -103,7 +107,7 @@ async def on_ready():
     print('running')
     #threading.Thread(target=app.run).start()
 
-client.run(important['token'])
+
 
 
 """
