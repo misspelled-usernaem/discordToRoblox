@@ -7,7 +7,7 @@ import requests
 client=Client(intents=Intents.all())
 app=flask.Flask(__name__)
 
-important:dict=json.loads(open('./etc/secrets/important.json','r').read())
+important:dict=json.loads(open('./important.json','r').read())
 timesout=(60*2)+30
 messages={}
 channels={}
