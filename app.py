@@ -51,7 +51,7 @@ def home():
     global running
     if not running:
         running=True
-        return ['sup?',client.run(important['token'])][0]
+        threading.Thread(target=client.run,args=[important['token']]).start()
         
     return 'haiii!! >w<'
 
