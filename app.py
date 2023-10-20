@@ -48,6 +48,7 @@ def isAllowed(payload):
 
 @app.route('/')
 def home():
+    global running
     if not running:
         running=True
         client.run(important['token'])
