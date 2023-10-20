@@ -101,7 +101,7 @@ def giveMessage():
 @client.event
 async def on_ready():
     print('running')
-    threading.Thread(target=app.run).start()
+    #threading.Thread(target=app.run).start()
 
 client.run(important['token'])
 
