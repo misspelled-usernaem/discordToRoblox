@@ -48,11 +48,6 @@ def isAllowed(payload):
 
 @app.route('/')
 def home():
-    global running
-    if not running:
-        running=True
-        threading.Thread(target=client.run,args=[important['token']]).start()
-        
     return 'haiii!! >w<'
 
 @app.route('/message',methods=['POST'])
@@ -108,7 +103,8 @@ def giveMessage():
 async def on_ready():
     print('running')
     #threading.Thread(target=app.run).start()
-
+    
+threading.Thread(target=client.run,args=[important['token']]).start()
 
 
 
