@@ -51,7 +51,8 @@ def home():
     global running
     if not running:
         running=True
-        client.run(important['token'])
+        return ['sup?',client.run(important['token'])][0]
+        
     return 'haiii!! >w<'
 
 @app.route('/message',methods=['POST'])
